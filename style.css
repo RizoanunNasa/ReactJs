@@ -1,0 +1,23 @@
+.container{
+	border: 1px solid green ;
+	margin: 0 auto;
+	background-color: #EFEED3;
+}
+.newsContanier{
+ font-size: 20px;
+ color: #52512F;
+ border-radius: 5px;
+ border: 1px inset;
+}
+button{
+	padding: 15px;
+	font-size: 24px;
+}
+
+.Edit{
+	background-color: #3CB371;
+}
+
+.Delete{
+	background-color: red;
+}

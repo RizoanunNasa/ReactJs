@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+  <body>
+   
+   <!-- React class  component and Property -->
+    <div id="root"></div>
+    <script type="text/babel">
+      
+    function Title(props){
+         return (
+           <div> 
+            <h1>{props.hTitle}</h1>
+            <p>total count {props.count}</p>
+           </div> 
+         )
+      }
+
+     class HotNews extends React.Component {
+
+         constructor(props){
+          super(props);
+          this.state={
+            totalEditCount:0
+          };
+
+         }
+        
+        edit(){
+          alert("Edit Button Clicked");
+
+          this.setState({
+          totalEditCount: this.state.totalEditCount+1
+        });
+          
+        }
+
+        delete(){
+          alert("delete Button Clicked");
+        }
+
+
+
+      render(){
+        const props= this.props;
+        const EditCount=this.state.totalEditCount;
+        return (
+           <div className="newsContanier">
+               <Title hTitle={props.title} count={EditCount} />
+               <p>{props.children}</p>
+               <div className="Action">
+                 <button className="Edit" onClick={() => this.edit()}> Edit</button>
+                 <button className="Delete" onClick={this.delete}> Delete</button>
+                       
+               </div>
+               {!!EditCount &&(<p>Total Edit Button Clicked {EditCount}</p>)} 
+           </div>
+          )
+      }
+     }
+
+      ReactDOM.render( 
+
+        <div className="container">
+         < HotNews title="News 1">Ammy has completed this tutorial!!</HotNews> 
+         <HotNews title="News 2">Yesterday We Celebrates  pohela boishakh 1426</HotNews>
+         
+         </div>
+        ,
+        document.getElementById('root')
+      );
+
+    </script>
+ 
+  </body>
+</html>
